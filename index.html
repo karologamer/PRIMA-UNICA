@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Prima Única</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: url('https://i.ibb.co/2Fh85Yq/1727275510636.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        header img {
+            max-width: 100%;
+            height: auto;
+        }
+        h1 {
+            text-align: center;
+            text-transform: uppercase;
+        }
+        label, input, button {
+            display: block;
+            margin: 10px 0;
+        }
+        label {
+            font-weight: bold;
+        }
+        input {
+            padding: 5px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: darkred;
+        }
+        h2 {
+            margin-top: 20px;
+        }
+        .botones {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .botones a {
+            display: inline-block;
+            padding: 10px;
+            margin: 0 10px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .botones img {
+            width: 46px;
+            height: 46px;
+            vertical-align: middle;
+        }
+        .resultado {
+            font-weight: bold;
+            background-color: white;
+            padding: 5px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://i.ibb.co/4K0GRSP/IMG-20240925-132533.jpg" alt="Nueva imagen de encabezado">
+    </header>
+    <h1>Calculadora Prima Única</h1>
+
+    <label for="retribuciones2022">Retribuciones 2022:</label>
+    <input type="number" id="retribuciones2022" placeholder="Ingrese retribuciones 2022" aria-label="Retribuciones 2022">
+
+    <label for="retribuciones2023">Retribuciones 2023:</label>
+    <input type="number" id="retribuciones2023" placeholder="Ingrese retribuciones 2023" aria-label="Retribuciones 2023">
+
+    <label for="retribuciones2024">Retribuciones 2024:</label>
+    <input type="number" id="retribuciones2024" placeholder="Ingrese retribuciones 2024" aria-label="Retribuciones 2024">
+
+    <button onclick="calcularPrimaUnica()" aria-label="Calcular Prima Única">Calcular Prima Única</button>
+
+    <h2>Resultados:</h2>
+    <p id="resultado2022" class="resultado" aria-live="polite"></p>
+    <p id="resultado2023" class="resultado" aria-live="polite"></p>
+    <p id="resultado2024" class="resultado" aria-live="polite"></p>
+    <p id="resultadoTotal" class="resultado" aria-live="polite"></p>
+
+    <div class="botones">
+        <a href="https://chat.whatsapp.com/D5ApXE9M1rG7RN9Z3NA8Xu" target="_blank" class="whatsapp" aria-label="WhatsApp">
+            <img src="https://cdn.icon-icons.com/icons2/2429/PNG/512/whatsapp_logo_icon_147205.png" alt="WhatsApp">
+        </a>
+        <a href="https://www.instagram.com/ccooambulanciasmadrid?igsh=MXQ0ZWIwaTFrOGI2NA==" target="_blank" class="instagram" aria-label="Instagram">
+            <img src="https://cdn.icon-icons.com/icons2/1211/PNG/512/1491580635-yumminkysocialmedia26_83102.png" alt="Instagram">
+        </a>
+        <a href="https://t.me/+opJ3RrL5QB4xNDU0" target="_blank" class="telegram" aria-label="Telegram">
+            <img src="https://cdn.icon-icons.com/icons2/923/PNG/256/telegram_icon-icons.com_72055.png" alt="Telegram">
+        </a>
+        <a href="https://www.bocm.es/bocm-20220228-23" target="_blank" class="convenio" aria-label="Convenio">
+            <img src="https://cdn.icon-icons.com/icons2/603/PNG/512/legal_law_justice_balance_court_judge_icon-icons.com_55992.png" alt="Convenio">
+        </a>
+    </div>
+
+    <script>
+        function calcularPrimaUnica() {
+            let retribuciones2022 = parseFloat(document.getElementById('retribuciones2022').value) || 0;
+            let retribuciones2023 = parseFloat(document.getElementById('retribuciones2023').value) || 0;
+            let retribuciones2024 = parseFloat(document.getElementById('retribuciones2024').value) || 0;
+
+            if (retribuciones2022 < 0 || retribuciones2023 < 0 || retribuciones2024 < 0) {
+                alert("Por favor, ingrese valores válidos y positivos en todos los campos.");
+                return;
+            }
+
+            let primaUnica2022 = retribuciones2022 * 0.03;
+            let primaUnica2023 = retribuciones2023 * 0.066;
+            let primaUnica2024 = retribuciones2024 * 0.1034;
+
+            let totalPrimaUnica = primaUnica2022 + primaUnica2023 + primaUnica2024;
+
+            document.getElementById('resultado2022').innerHTML = "Prima Única % 2022: " + primaUnica2022.toFixed(2) + " €";
+            document.getElementById('resultado2023').innerHTML = "Prima Única % 2023: " + primaUnica2023.toFixed(2) + " €";
+            document.getElementById('resultado2024').innerHTML = "Prima Única % 2024: " + primaUnica2024.toFixed(2) + " €";
+            document.getElementById('resultadoTotal').innerHTML = "Total Prima Única: " + totalPrimaUnica.toFixed(2) + " €";
+        }
+    </script>
+</body>
+</html>
